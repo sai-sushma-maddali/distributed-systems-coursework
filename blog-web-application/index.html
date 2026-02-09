@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "eng">
+	<head>
+		<title>HW1 - Sai Sushma Maddali</title>
+		<style>
+			body, 
+			html{
+				height : 100%;
+				margin : 0;
+				display : flex;
+				flex-direction:column;
+				justify-content : center;
+				align-items:center}
+			.form-container{
+				border-radius: 25px;
+				padding: 30px;
+				border: 2px solid #9A96CA;
+				background-color:#F2F1FD}
+			.button-center{
+				display:flex;
+				justify-content:center;
+				align-items:center
+			}
+				
+		</style>
+	</head>
+	<body>
+		<h1>Title of Blog Topic</h1><br>
+		<div class = "form-container">
+			<form id = "blogForm">
+				
+				<label for = "btitle"><b>Blog title *</b></label><br>
+				<input type = "text" id= "btitle" name = "btitle" placeholder = "Enter the title of your blog" size = "50" autofocus required><br><br><br>
+				<label for = "authorname"><b>Author Name *</b></label><br>
+				<input type = "text" id = "authorname" name = "authorname" placeholder = "Enter your name" size = "50" required><br><br><br>
+				<label for = "email"><b>Email Address *</b></label><br>
+				<input type = "email"id = "email" name = "email" placeholder = "Enter your email" size = "50" required><br><br><br>
+				<label for = "blog_content"><b>Blog Content *</b></label><br>
+				<textarea id = "blog_content" name = "blog_content" placeholder = "Write your content here..." rows = "4" cols = "50" required ></textarea><br><br><br>
+				<label for = "category"><b>Category Selection</b></label><br>
+				<select id = "category" name = "category">
+					<option value = "Technology">Technology</option>
+					<option value = "Lifestyle">Lifestyle</option>
+					<option value = "Travel">Travel</option>
+					<option value = "Education">Education</option>
+				</select><br><br>
+				<input type = "checkbox" id = "tc" name = "tc">
+				<label for = "tc"><strong>I agree to the terms and conditions.</strong></label><br><br><br>
+				<div class = "button-center">
+					<!-- <button type = "submit" onclick = "contentLength(); checkboxChecked();">Publish Blog</button> -->
+					<button type = "submit" onclick = "return validateFormSubmission();">Publish Blog</button>
+				</div>
+			</form>
+		</div>
+		<script src = "blog.js"></script>
+	</body>
+</html>
