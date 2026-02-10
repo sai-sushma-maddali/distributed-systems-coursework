@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>Search Book</title>
+		<style>
+			table, th,td{
+			border: 1px solid #FFE8BD;
+			border-collapse:collapse;
+			box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+			border-radius: 12px}
+			
+			th,td{
+			padding:10px;}
+			th{
+			font-weight:bold;
+			}
+			td{
+			font-weight:normal;
+			}
+			body{
+				background-color:#FCE5B1;
+				margin: 0;
+				font-family: Arial, sans-serif;
+			}
+			.searchBookContainer{
+				text-align: center;
+				background-color:#FFF7EB;
+				width:80%;
+				max-width: 700px;
+				margin: 0 auto;
+				padding: 20px;
+				border: 1px;
+				border-radius: 12px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1)
+			}
+			.button-container{
+				text-align: center;
+				margin-top: 20px
+			}
+			.button-container button{
+				background-color: #FFD68A;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+				padding: 12px 24px;
+				min-width: 130px;
+				margin: 0 10px
+			}
+			.button-container button:hover{
+				background-color: #FFEAC2;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+			}
+			.table-container{
+				background-color:#FFF7EB;
+				width:80%;
+				margin: 0 auto;
+				padding: 20px;
+				border: 1px;
+				border-radius: 12px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+			}
+			#booksTable{
+				width:80%;
+				margin:0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style = "text-align:center">Search for Books</h1><br>
+		<h3 style = "text-align:center;">Search by book title, author name, or both. Leave a field blank to widen your search</h1><br><br>
+		<div class = "searchBookContainer">
+			<form id = "searchForm">
+				<label for = "btitle"><b>Book Title</b></label><br>
+				<input type = "text" id = "btitle" name = "btitle" placeholder =  "e.g., The Alchemist"></input><br><br>
+				
+				<label for = "aname"><b>Author Name</b></label><br>
+				<input type = "text" id = "aname" name = "aname" placeholder = "e.g.,Paulo Coelho" ></input><br><br>
+				
+				<div class = "button-container">
+					<button type = "submit"><b>Search<b></button>
+					<button type = "button" id = "home_button"><b>Return to Home Screen</b></button>
+				</div>
+			</form>
+		</div>
+		<br>
+		<br>
+		<div class="table-container">
+		
+			<table id = "booksTable" style = "width:100%">
+				<tr>
+					<th>Book ID</th>
+					<th>Book Title</th>
+					<th>Author Name</th>
+				</tr>
+			</table>
+		</div>
+		
+		<script src = "/static/book_management.js"></script>
+		<script>
+			document.getElementById("home_button").addEventListener("click", (e) => {
+				e.preventDefault();
+				launchHomeScreen();
+				});
+		</script>
+		<script>
+			document.getElementById("searchForm").addEventListener("submit", (e) => {
+				e.preventDefault();
+				const btitle = document.getElementById("btitle").value
+				const aname = document.getElementById("aname").value
+				const results = searchBook(btitle, aname);
+				displaySearchResults(results);
+				});
+		</script>
+	</body>
+</html>

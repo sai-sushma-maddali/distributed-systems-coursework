@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang = "en">
+	<head>
+		<title>Update Book Details</title>
+		<style>
+			body{
+				background-color:#FCE5B1;
+				margin: 0;
+				font-family: Arial, sans-serif;
+			}
+			.bookFormContainer{
+				text-align: center;
+				background-color:#FFF7EB;
+				width:80%;
+				max-width: 700px;
+				margin: 0 auto;
+				padding: 20px;
+				border: 1px;
+				border-radius: 12px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1)
+			}
+			.button-container{
+				text-align: center;
+				margin-top: 20px
+			}
+			.button-container button{
+				background-color: #FFD68A;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+				padding: 12px 24px;
+				min-width: 130px;
+				margin: 0 10px
+			}
+			.button-container button:hover{
+				background-color: #FFEAC2;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<br>
+		<h1 style = "text-align:center;">Update a Book</h1>
+		<p class="subtitle" style = "text-align:center;">Enter the <strong>Book ID</strong> to update, then provide the new details.</p>
+		<div class = "bookFormContainer">
+			<form id = "updateBookForm">				
+				<label for = "book_id"><b>Book ID *</b></label><br>
+				<input = "text" id = "book_id" name = "book_id" placeholder = "e.g., 1" autofocus required></input><br><br>
+				
+				<label for = "book_title"><b>Book Title*</b></label><br>
+				<input = text id = "book_title" name = "book_title" placeholder = "e.g., The Alchemist" required></input><br><br>
+				
+				<label for = "author_name"><b>Author Name*</b></label><br>
+				<input = "text" id = "author_name" name = "author_name" placeholder = "e.g.,Paulo Coelho" required></input><br><br>
+				
+				<div class = "button-container">
+					<button = "submit"><b>Submit</b></button>
+				</div>
+			</form>
+		</div>
+		<script src = "/static/book_management.js"></script>
+		<script>
+			document.getElementById("updateBookForm").addEventListener("submit", (e) => {
+				e.preventDefault();
+				const bookID = Number(document.getElementById("book_id").value);
+				const updatedTitle = document.getElementById("book_title").value;
+				const updatedAuthor = document.getElementById("author_name").value;
+				
+				updateBookById(bookID, updatedTitle, updatedAuthor)
+				launchHomeScreen();
+				});
+		</script>
+	</body>
+</html>

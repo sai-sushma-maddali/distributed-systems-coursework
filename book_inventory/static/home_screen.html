@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>HW2 - Sai Sushma Maddali</title>
+		<script src = "/static/book_management.js" defer></script>
+		<style>
+			table, th,td{
+			border: 1px solid #FFE8BD;
+			border-collapse:collapse;
+			box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+			border-radius: 12px}
+			
+			th,td{
+			padding:10px;}
+			
+			.table-container{
+				background-color:#FFF7EB;
+				width:80%;
+				margin: 0 auto;
+				padding: 20px;
+				border: 1px;
+				border-radius: 12px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+			}
+			#booksTable{
+				width:80%;
+				margin:0 auto;
+			}
+			.button-container{
+				text-align: center;
+				margin-top: 20px
+			}
+			.button-container input{
+				background-color: #FFD68A;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+				padding: 12px 24px;
+				min-width: 130px;
+				margin: 0 10px
+			}
+			.button-container input:hover{
+				background-color: #FFEAC2;
+				border:1px;
+				box-shadow:0 2px 6px rgba(0, 0, 0, 0.1);
+				border-radius: 12px;
+			}
+			body{
+				background-color:#FCE5B1;
+				margin: 0;
+				font-family: Arial, sans-serif;
+			}
+			.books-image{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style = "text-align:center;">Artist Liberty</h1>
+		<div class = "books-image">
+			<img src = "/static/books_image.png">
+		</div>
+		<h2 style = "text-align:center;">Book Manager</h2>
+		<h5 style = "text-align:center">Manage your collection of books. Browse, search, add, update, or delete books from your library</h5>
+		<div class = "table-container">
+			<table id = "booksTable">
+				<tr>
+					<th>Book ID</th>
+					<th>Book Title</th>
+					<th>Author Name</th>
+				</tr>
+			</table><br><br><br><br><br>
+		</div>
+		<br><br><br><br>
+		<!--<a href = "add_book_screen.html">Add book</a> -->
+		<div class = "button-container">
+			<input type = "button" value = "Add Book" onclick = "launchAddScreen()">
+			<input type = "button" value = "Update Book" onclick = "launchUpdateScreen()">
+			<input type = "button" value = "Delete Book" onclick = "deleteBookById()">
+			<input type = "button" value = "Search Book" onclick = "launchSearchScreen()">
+		</div>
+		
+		<script>document.addEventListener("DOMContentLoaded", () => {
+    if (typeof displayAllBooks === "function") displayAllBooks();
+  });</script>
+	</body>
+</html>
